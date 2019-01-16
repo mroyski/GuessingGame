@@ -7,7 +7,7 @@ namespace GuessingGame
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Console.WriteLine("Goodbye!");
+            Console.WriteLine("Adios!");
         }
     }
 }
