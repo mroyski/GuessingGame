@@ -28,6 +28,17 @@ namespace GuessingGame
             } else
             {
                 Console.WriteLine("You lost.");
+                Console.WriteLine("Try again.");
+                Console.ReadLine();
+
+                if (userGuess.Equals("7"))
+                {
+                    Console.WriteLine("You win!");
+                }
+                else
+                {
+                    Console.WriteLine("You lost.");
+                }
             }
 
 
