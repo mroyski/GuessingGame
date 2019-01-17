@@ -18,32 +18,36 @@ namespace GuessingGame
                 userGuess = Console.ReadLine();
             }
 
-
+            //Convert string to int
+            //int numVal = Int32.Parse(userGuess);
 
             Console.WriteLine("You guessed: " + userGuess);
 
             if (userGuess.Equals("7"))
+
             {
-                Console.WriteLine("You win!");
+                Console.WriteLine("You win!")
             } else
             {
                 Console.WriteLine("You lost.");
                 Console.WriteLine("Try again.");
                 Console.ReadLine();
-
-                if (userGuess.Equals("7"))
                 {
-                    Console.WriteLine("You win!");
-                }
-                else
-                {
-                    Console.WriteLine("You lost.");
+                    if (userGuess.Equals("7"))
+                    {
+                        Console.WriteLine("You win!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You lost.");
+                    }
                 }
             }
+        }
+    
 
 
-
-            //switch Attempt
+            //===SWITCH ATTEMPT===
             //switch (userGuess)
             //{
             //    case "7":
@@ -58,4 +62,4 @@ namespace GuessingGame
             //}
         }
     }
-}
+
