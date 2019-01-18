@@ -6,82 +6,61 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
+            int numGuess = 0;
 
-            Console.WriteLine("Please guess a number between 1 and 10, or enter 0 for HELP.");
-            string userGuess = Console.ReadLine();
+            Random r = new Random();
 
-            //FIRST PASS
+            int winNum = r.Next(0, 11);
 
-            if (userGuess.Equals("-1"))
+            bool win = false;
+
+            do
             {
-                Console.WriteLine("Goodbye!");
-            }
-            else
-            {
-                if (userGuess.Equals("0"))
-                {
-                    Console.WriteLine("===== INSTRUCTIONS =====");
-                    Console.WriteLine("Guess a number between 1 and 10.");
-                    Console.WriteLine("Hit enter to submit your guess.");
-                    Console.WriteLine("Type -1 to quit.");
+                Console.WriteLine("Guess a number between 1 and 10.");
+                Console.WriteLine("Enter 0 for instructions.");
+                Console.WriteLine("Enter -1 to quit.");
+                string s = Console.ReadLine();
 
-                    userGuess = Console.ReadLine();
+
+                int i = int.Parse(s);
+
+
+                if (i == 0)
+                {
+                    Console.WriteLine("==== INSTRUCTIONS ====");
+                }
+                else if (i == -1)
+                {
+                    System.Environment.Exit(0);
+                }
+                else if (i > winNum)
+                {
+                    Console.WriteLine("Too high! Guess lower.");
+                    numGuess++;
+                }
+                else if (i < winNum)
+                {
+                    Console.WriteLine("Too low! Guess higher.");
+                    numGuess++;
+                }
+                else if (i == winNum)
+                {
+                    Console.WriteLine("YOU WIN!");
+                    win = true;
+                }
+                else if (numGuess == 3)
+                {
+                    Console.WriteLine("You lost. Bye sucka!");
+                    System.Environment.Exit(0);
                 }
 
+                Console.WriteLine();
+            } while (win == false);
 
-                Console.WriteLine("You guessed: " + userGuess);
-
-                if (userGuess.Equals("7"))
-
-                {
-                    Console.WriteLine("You win!");
-                }
-                //SECOND PASS
-
-                else
-                {
-                    if
-                    (userGuess.Equals("-1"))
-                    {
-                        Console.WriteLine("Goodbye!");
-                    }
-                    else
-
-                    {
-                        Console.WriteLine("You lost.");
-                        Console.WriteLine("Try again.");
-                        Console.ReadLine();
-                        {
-                            if (userGuess.Equals("7"))
-                            {
-                                Console.WriteLine("You win!");
-                            }
-                            else
-                            {
-                                Console.WriteLine("You lost.");
-                            }
-                        }
-                    }
-                }
-
-
-
-                //===SWITCH ATTEMPT===
-                //switch (userGuess)
-                //{
-                //    case "7":
-                //        Console.WriteLine("You win!");
-                //        break;
-                //    case "0":
-                //        Console.WriteLine("Please guess a number between 1 and 10.");
-                //        break;
-                //    default:
-                //        Console.WriteLine("Try again.");
-                //        break;
-                //}
-            }
+            Console.WriteLine("Thank you for playing the game!");
+            //Console.Write("Press any key to finish.");
+            //Console.ReadKey(true);
         }
     }
 }
-
 
